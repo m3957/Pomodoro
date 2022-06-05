@@ -7,7 +7,23 @@ pomodoro = 900 #15 minutes
 pomobreak = 300 #5 minutes
 numpomodoro = 4
 
+#if os.name == "posix":
+    #startpath = "/home/{os.getlogin()}/"
+#if os.name == "nt":
+    #startpath = """C:\Users\{os.getlogin()}\"""
 
+#Vite il me faut un fix pour le code 10-13
+
+
+##############################################################
+# Dans cette section, vous pouvez personnalisez le code      #
+# pour avoir ce que vous voulez comme choix de musique,      #
+# et si vous ne comprenez pas, voici un exemple.             #
+# Vous voyez à la ligne 37 un path = f""? Vous pouvez        #
+# le changer pour le path vers la bonne musique. Ensuite,    #
+# ligne 28, changez le print pour afficher une option pour   #
+# votre nouveau dossier. FLEMME DE FAIRE UN TRUC AUTOMATIQUE #
+##############################################################
 os.system("clear")
 print("""
 Choix de la musique
@@ -18,13 +34,10 @@ Choix de la musique
 musicpath = int(input())
 
 if musicpath == 1:
-    path = f"/home/{os.getlogin()}/Music/Context Sensitive/"
+    path = f"/home/{os.getlogin()}/Music/Context Sensitive/" #Changez pour votre dossier de musique
 if musicpath == 2:
     path = f"/home/{os.getlogin()}/Music/"
-#else:
-    #print("Mais bruh, tu m'as écrit quoi, là?!")
-    #sleep(3)
-    #quit()
+###############################################################
 
 all_mp3 = [os.path.join(path, f) for f in os.listdir(path) if f.endswith('.mp3')]
 randomfile = random.choice(all_mp3)
